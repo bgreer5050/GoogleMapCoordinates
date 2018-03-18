@@ -1,3 +1,35 @@
+<html>
+<head>
+  <script>
+var map1;
+
+function initMap() {
+  var myLatLng = {lat: 41.53, lng: -87.81};
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 15,
+    center: myLatLng
+  });
+
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'Frankfort Square'
+    
+  });
+  google.maps.event.addListener(map,'click',function(event) {
+                 document.getElementById('latlongclicked').value = event.latLng.lat()
+                 document.getElementById('lotlongclicked').value =  event.latLng.lng()
+                 
+                 alert(event.latLng);
+                
+    
+                 
+             });
+}
+
+  </script>
+  <body>
 <div id="map"></div>
 <!-- Replace the value of the key parameter with your own API key. -->
 <script async defer
@@ -6,3 +38,5 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkUOdZ5y7hMm0yrcCQoCvLwzd
 
 <p id=latlongclicked></p>
 <p id=lotlongclicked></p>
+  </body>
+  </html>
